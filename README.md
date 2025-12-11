@@ -1,5 +1,15 @@
-# crypto-price-prediction-rnn
-Deep learning project using RNNs to predict crypto prices
+# ECE1508 Final Project - Coinsight
+Coinsight is a deep learning based system for forecasting next-day cryptocurrency prices using only historical market data. The project addresses the inherent volatility and nonlinear dynamics of cryptocurrency markets by applying Recurrent Neural Networks (RNNs) sequence models to a sequence-to-one regression task. Given a fixed window of historical features, the model predicts the next-day closing price with a target relative error of 20% or better (currently we're using 10% which is twice as better as our initial proposal).
+
+The system processes historical open, high, low, close prices, volume, returns, and related engineered features collected from the Bitcoin price dataset (sourced from Kaggle). After resampling, normalization, and feature preparation, the data is fed into two alternative architectures:
+
+1. Baseline Model: **Elman RNN**
+
+    A classical recurrent architecture that captures short-range temporal dependencies, serving as a benchmark for evaluating the effectiveness of our more deeper, enhanced sequence model.
+
+2. Enhanced Model: **Stacked LSTM Network**
+
+    A multi-layer LSTM with dropout between recurrent and fully connected layers. This architecture is designed to capture long-range temporal structure, stabilize training, and reduce overfitting which will be beneficial for financial time-series forecasting.
 
 ### Dependencies and Environment Setup
 First, to run locally, you will need to clone the GitHub repository. This project requires Python 3.10+ and a small set of deep learning libraries (e.g., NumPy, Pandas, Scikit-learn, PyTorch, Matplotlib). To ensure reproducibility across systems, we provide a requirements.txt file. You may set up the environment using either pip. 
